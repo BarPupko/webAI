@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monty - AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="header">
+    <div style="display: flex; align-items: center;">
+      <img src="https://cdn-icons-png.flaticon.com/512/5511/5511666.png" alt="Monty Icon" />
+      <h2>Monty - AI Chat</h2>
+    </div>
+    <button id="clear-btn" onclick="clearChat()">Clear Chat</button>
+  </div>
+
+  <div id="disclaimer">
+    <h3>Important Disclaimer:</h3>
+    <a>Please be aware that the information provided here is based on an AI model. 
+      While I strive for accuracy, AI-generated content may contain errors. 
+      Always verify critical information with official documentation.
+    </a>
+  </div>
+
+  <div id="chat-container"></div>
+
+  <div class="input-container">
+    <textarea id="message" placeholder="Ask Monty..." onkeydown="handleKeyPress(event)"></textarea>
+    <input type="file" id="fileUpload" accept=".pdf" onchange="handlePdfUpload(event)">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.5.141/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "monty-ai-doc-server",
+  "version": "1.0.0",
+  "description": "ACS Documentation Search for Monty",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "pdf-parse": "^1.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarPupko/webAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BarPupko/webAI/issues"
+  },
+  "homepage": "https://github.com/BarPupko/webAI#readme",
+  "devDependencies": {}
+}

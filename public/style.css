@@ -1,0 +1,148 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #1e1e1e;
+  color: white;
+  padding: 10px;
+}
+
+#chat-container {
+  padding: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  color: white;
+  font-family: sans-serif;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.message-user {
+  background-color: #007bff; /* Blue */
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+
+.message-ai {
+  background-color: #b1adad; /* Black / Dark gray */
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+
+pre {
+  background: #333;
+  padding: 5px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  color: #ffcc00;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  background: #333;
+  color: white;
+  resize: none;
+  margin-top: 5px;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #007acc;
+  color: white;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #005fa3;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#clear-btn {
+  background: red;
+  padding: 6px 10px;
+  font-weight: bold;
+}
+
+#disclaimer {
+  margin-top: 10px;
+  padding: 8px;
+  border-left: 4px solid #007acc;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+h3 {
+  color: #ffcc00;
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+a {
+  color: #00aaff;
+  text-decoration: underline;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+}
+
+a:hover {
+  color: #0088cc;
+}
+
+.code-block {
+  position: relative;
+  background: #1e1e1e;
+  color: #dcdcdc;
+  border-radius: 10px;
+  margin: 1em 0;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #007acc;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}

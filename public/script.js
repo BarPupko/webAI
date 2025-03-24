@@ -32,24 +32,24 @@ async function getAIResponse(userInput) {
     return `❌ Error: ${err.message}`;
   }
 }
-
 function copyCode(button) {
-  const codeElement = button.nextElementSibling.querySelector('code');
-  if (!codeElement) return;
+  const codeBlock = button.parentElement.querySelector('code');
+  if (!codeBlock) {
+    console.warn("Code block not found.");
+    return;
+  }
 
-  const text = codeElement.textContent;
+  const text = codeBlock.textContent;
   navigator.clipboard.writeText(text).then(() => {
     button.textContent = "Copied!";
     setTimeout(() => {
       button.textContent = "Copy";
     }, 2000);
   }).catch(err => {
-    console.error("Failed to copy:", err);
+    console.error("❌ Failed to copy:", err);
     button.textContent = "❌ Error";
   });
 }
-
-
 
 
 function formatAIResponse(response) {
@@ -65,10 +65,10 @@ function formatAIResponse(response) {
         .replace(/</g, "&lt;").replace(/>/g, "&gt;"); // Escape HTML
 
       return `
-      <div class="code-block">
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-        <pre><code>${cleaned}</code></pre>
-      </div>`;
+     <div class="code-block">
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    <pre><code>${cleaned}</code></pre>
+  </div>`;
     })
 
     // Bullet list formatting

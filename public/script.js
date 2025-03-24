@@ -4,34 +4,56 @@ window.onload = () => {
   appendMessage("Monty", "👋 Hello! I’m 🐎Monty - Your ACS AI Assistant.\nPlease upload the ACS documentation PDF file to begin.");
 };
 
+// async function getAIResponse(userInput) {
+//   try {
+//     const response = await fetch('http://localhost:11434/api/chat', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({
+//         model: 'llama3.2',
+//         messages: [
+//           { role: "system", content: "You are Monty, an AI assistant specialized in ACS Motion Control and technical guidance." },
+//           { role: "user", content: userInput }
+//         ],
+//         stream: false
+//       })
+//     });
+
+//     if (!response.ok) {
+//       const errorData = await response.text();
+//       throw new Error(`${response.status} - ${errorData}`);
+//     }
+
+//     const data = await response.json();
+//     let formattedResponse = data.message.content || "No response received.";
+//     formattedResponse = formatAIResponse(formattedResponse);
+//     return formattedResponse;
+
+//   } catch (err) {
+//     console.error("❌ Ollama error:", err);
+//     return `❌ Error: ${err.message}`;
+//   }
+// }
+
 async function getAIResponse(userInput) {
-  const apiKey = 'AIzaSyBDU5lpolgT-6W_gYdQeYASXqIikl9QamE'; // Replace with your actual Gemini key
-
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: userInput }] }]
-        })
-      }
-    );
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`${response.status} - ${errorData.error?.message || 'Unknown error'}`);
-    }
+    const response = await fetch('/api/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: userInput })
+    });
 
     const data = await response.json();
-    let formattedResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
-    formattedResponse = formatAIResponse(formattedResponse);
-    return formattedResponse;
+    console.log("🌟 AI Response (Frontend):", data);
+
+    return formatAIResponse(data.reply || "❌ Empty response.");
   } catch (err) {
+    console.error("❌ Error calling Gemini:", err);
     return `❌ Error: ${err.message}`;
   }
 }
+
+
 function copyCode(button) {
   const codeBlock = button.parentElement.querySelector('code');
   if (!codeBlock) {

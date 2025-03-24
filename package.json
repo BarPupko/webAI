@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "node-fetch": "^2.7.0",
     "pdf-parse": "^1.1.1"
   },
   "repository": {
@@ -21,6 +23,5 @@
   "bugs": {
     "url": "https://github.com/BarPupko/webAI/issues"
   },
-  "homepage": "https://github.com/BarPupko/webAI#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/BarPupko/webAI#readme"
 }

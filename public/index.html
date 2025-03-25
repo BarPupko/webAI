@@ -28,7 +28,8 @@
   <div class="input-container">
     <textarea id="message" placeholder="Ask Monty... Or upload a file" onkeydown="handleKeyPress(event)"></textarea>
     <input type="file" id="fileUpload" accept=".pdf" onchange="handlePdfUpload(event)">
-<small>📂 Based on: <code>C:\Program Files (x86)\ACS Motion Control\SPiiPlus Documentation Kit\Software Guides</code></small>
+    <small>📂 Based on: <code>C:\Program Files (x86)\ACS Motion Control\SPiiPlus Documentation Kit\Software Guides</code></small>
+    <div id="toast" class="toast hidden"></div>
    <button onclick="sendMessage()">Send</button>
   </div>
 

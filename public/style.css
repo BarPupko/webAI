@@ -146,3 +146,33 @@ a:hover {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.hidden-raw-code {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  opacity: 0;
+}
+
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #323232;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}

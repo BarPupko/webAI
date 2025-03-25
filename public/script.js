@@ -37,7 +37,8 @@ window.onload = () => {
 
 async function getAIResponse(userInput) {
   try {
-    const response = await fetch('/api/gemini', {
+    const response = await fetch(`${window.location.origin}/api/gemini`, {
+
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: userInput })

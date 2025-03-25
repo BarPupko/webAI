@@ -13,8 +13,9 @@ const PORT = 8000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '11mb' })); // 💡 Increase payload limit
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Constants
 const PDF_PATH = 'C:/Program Files (x86)/ACS Motion Control/SPiiPlus Documentation Kit/Software Guides/ACSPL-Commands-Variables-Reference-Guide.pdf';
@@ -91,5 +92,5 @@ app.post('/api/gemini', async (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Monty server is running at http://localhost:${PORT}`);
+  console.log(`🚀 Monty server is running at http://10.0.0.58:${PORT}`);
 });
